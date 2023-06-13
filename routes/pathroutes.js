@@ -1,7 +1,6 @@
 import express from "express"
 const route = express.Router();
 import { regcon } from "../Controller/Register_con.js"
-import { verifypass } from "../Middleware/login_mid.js";
 import { logincon } from "../Controller/login_con.js";
 import { Home } from "../Controller/Home.js";
 import {voting} from "../Controller/Voting.js"
@@ -23,7 +22,7 @@ route.get("/", Home, async(req, res) =>
     let data = await Product.find();
     res.send(data)
 })
-route.post("/Login",verifypass,logincon)
+route.post("/Login",logincon)
 route.post("/Register", regcon) 
 route.post("/update_voting", voting)
 route.post("/comment", comments_add)
