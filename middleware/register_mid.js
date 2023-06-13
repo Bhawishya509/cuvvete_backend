@@ -10,8 +10,10 @@ const verify = (req, res, next) => {
       password.length < 6 ||
       name < 3 ||
       mobile[0] <= 5
-    ) {
+    )
+    {
       res.send({});
-    } else next();
+    }
+    else next();
   };
   export { verify };
